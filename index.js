@@ -1,7 +1,8 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require('cors')
-const ObjectId = require('mongodb').ObjectId
+const ObjectId = require('mongodb').ObjectId;
+const { response } = require("express");
 require("dotenv").config();
 
 const app = express();
@@ -17,6 +18,7 @@ const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+
 
 // ---------------------------------------------------------------
 // DATABASE connection main function;
@@ -60,6 +62,12 @@ async function run() {
 }
 run().catch(console.dir);
 // ---------------------------------------------------------------
+
+
+app.get('/hello', (req, res) => {
+    res.send('Obaidullah vater phan khai, sesra, itor');
+})
+
 
 // ---------------------------------------------------------
 // ---------------------------------------------------------
